@@ -1,0 +1,53 @@
+.container {
+}
+
+.tasks {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 40px;
+}
+
+.tasks .list {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.tasks .list li {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-bottom: 7px;
+}
+
+.tasks .list li input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.tasks .list li input[type="text"] {
+  font-size: 14px;
+  color: #444;
+  flex: 1;
+  background-color: transparent;
+  outline: none;
+}
+
+.tasks .list li input[type="text"].risked {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.tasks .list li button {
+  background-color: #fff;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

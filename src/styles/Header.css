@@ -1,0 +1,52 @@
+.main-header {
+  background-color: #0B1923;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  margin: 0 auto;
+  height: 200px;
+  
+  max-width: 1200px;
+}
+
+.header-content h1 {
+  color: #FFF;
+  font-size: 54px;
+}
+
+form {
+  display: flex;
+}
+
+.input {
+  background-color: #FFF;
+  border: 1px solid #999;
+  border-radius: 4px;
+  height: 40px;
+  margin-right: 10px;
+  padding: 0 14px;
+  min-width: 450px;
+  font-size: 16px;
+}
+
+.btn-add-task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  background-color: #F7D42F;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+
+.btn-add-task:hover {
+  filter: brightness(0.9);
+  transition: filter 0.3s;
+}
