@@ -16,10 +16,18 @@ const TodoListProvider = (props) => {
   }, []);
 
   // Essa função vai ser chamada, quando o usuário clicar no botão de adicionar a tarefa
-  const handleCreateNewTask = () => {
-    setListaDeTarefas([...listaDeTarefas, taskTitle]);
+  const handleCreateNewTask = (event) => {
+    event.preventDefault();
+    setListaDeTarefas([...listaDeTarefas, {
+      title: taskTitle, isDone: false,
+    }]);
 
-    localStorage.setItem('lista-de-tarefas', JSON.stringify([...listaDeTarefas, taskTitle]) );
+    localStorage.setItem(
+      'lista-de-tarefas',
+      JSON.stringify([...listaDeTarefas, {
+        title: taskTitle, isDone: false,
+      }])
+    );
 
     setTaskTitle("");
   }
@@ -33,6 +41,16 @@ const TodoListProvider = (props) => {
     localStorage.setItem('lista-de-tarefas', JSON.stringify(novaListaDeTarefas) );
   }
 
+  const handleChangeTaskStatus = (indiceTarefa) => {
+    const newTarefas = listaDeTarefas.map((tarefa, index) => {
+      return index === indiceTarefa
+        ? { ...tarefa, isDone: !tarefa.isDone }
+        : tarefa;
+    })
+
+    setListaDeTarefas(newTarefas)
+  }
+
   return (
     <TodoListContext.Provider value={ {
       taskTitle,
@@ -40,6 +58,7 @@ const TodoListProvider = (props) => {
       handleCreateNewTask,
       listaDeTarefas,
       handleRemoveTask,
+      handleChangeTaskStatus,
     } }>
       { props.children }
     </TodoListContext.Provider>

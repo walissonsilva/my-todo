@@ -13,7 +13,7 @@ const Header = () => {
       <div className="header-content">
         <h1>MyTodo</h1>
 
-        <form>
+        <form onSubmit={handleCreateNewTask}>
           <input
             type="text"
             className="input"

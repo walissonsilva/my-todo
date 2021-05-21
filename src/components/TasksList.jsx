@@ -6,7 +6,11 @@ import { TodoListContext } from '../contexts/TodoListContext';
 import '../styles/TasksList.css';
 
 const TasksList = () => {
-  const { listaDeTarefas, handleRemoveTask } = useContext(TodoListContext);
+  const {
+    listaDeTarefas,
+    handleRemoveTask,
+    handleChangeTaskStatus,
+  } = useContext(TodoListContext);
 
   return (
     <div className="container">
@@ -18,11 +22,14 @@ const TasksList = () => {
             <li key={index}>
               <input
                 type="checkbox"
-              />
+                value={tarefa.isDone}
+                onChange={() => handleChangeTaskStatus(index)}
+                />
 
               <input
                 type="text"
-                value={tarefa}
+                className={`${tarefa.isDone ? 'risked' : ''}`}
+                value={tarefa.title}
                 readOnly={true}
               />
 
